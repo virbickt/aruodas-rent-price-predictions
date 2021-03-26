@@ -35,7 +35,7 @@ Postgre database, all the psycopg2 functionality required to populate the databa
 Creates a new table that is to be used for storing predictions. If the table already exists, it is deleted and a new table is initialized. 
 
   Returns: None
-
+#### create record
 - `create_record(request, response)`
 Inserts the input provided by the user and the output by the model to the table
 
@@ -44,7 +44,7 @@ Inserts the input provided by the user and the output by the model to the table
    - response(str): Model's predictions for the predicted price given the input values. 
 
   Returns: None
-
+#### recent records
 - `get_recent_records(number_of_records)`
 Returns the desired number of most recent results consisting in input-output pairs
 
@@ -63,10 +63,30 @@ Returns the desired number of most recent results consisting in input-output pai
 For a complete list of dependencies, please find `requirements.txt` 
 
 ## Examples
+### Getting predictions using API
+Using Python's in-built `requests` library
 ```python
-database = Database()
-database.load
+import requests
+import json
+
+features_for_prediction = {"inputs":
+                           [
+                               {"number_of_rooms": -0.65435196,
+                               "area": -0.08707387,
+                               "floor_on": -0.59894514,
+                               "floors_total": -1.05494671}
+                           ]
+                          }
+  try:
+    response = requests.get("http://127.0.0.1:5000/predict", json.dumps(features_for_prediction))
+
+  except requests.exceptions.ConnectionError:
+    requests.status_code = "Connection refused"
 ```
+Using Postman:
+### Retrieving last records
+Using Postman:
+
 
 ## License
 The project is licenced under [GNU General Public License v3.0](https://github.com/virbickt/calculator/blob/main/LICENSE.md)
