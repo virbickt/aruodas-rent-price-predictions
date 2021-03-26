@@ -86,7 +86,7 @@ features_for_prediction = {"inputs":
 Using Postman:
 ### Retrieving last records
 Using Postman:
-
+![example](images/last_requests.PNG)
 
 ## License
 The project is licenced under [GNU General Public License v3.0](https://github.com/virbickt/calculator/blob/main/LICENSE.md)
