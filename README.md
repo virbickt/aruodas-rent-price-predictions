@@ -36,21 +36,22 @@ Creates a new table that is to be used for storing predictions. If the table alr
 
   Returns: None
 
-2. `create_record(request, response)`
+- `create_record(request, response)`
 Inserts the input provided by the user and the output by the model to the table
 
   Parameters: 
-    - request(str) Input provided by the user which consists of values for each of features that model is using for predicing the target variable. The input is provided using Python's in-built `requests` or, Postman.
-    - response(str): Model's predictions for the predicted price given the input values. 
+   - request(str) Input provided by the user which consists of values for each of features that model is using for predicing the target variable. The input is provided using Python's in-built `requests` or, Postman.
+   - response(str): Model's predictions for the predicted price given the input values. 
 
   Returns: None
 
-3. ``get_recent_records(number_of_records)``
+- `get_recent_records(number_of_records)`
 Returns the desired number of most recent results consisting in input-output pairs
 
-**Parameters**:
-- *number_of_records*(int): The number of records of input-output pairs that is to be retrieved from the database.
-**Returns**: json object with the specified number of lists for each prediction
+  Parameters:
+   - *number_of_records*(int): The number of records of input-output pairs that is to be retrieved from the database.
+   
+  Returns: json object with the specified number of lists for each prediction
 
 ## Technologies:
 - `Flask, version 1.1.2`
