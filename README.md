@@ -60,7 +60,7 @@ Returns the desired number of most recent results consisting in input-output pai
 - `sklearn`
 - `numpy, version 1.20.1`
 
-For a complete list of dependencies, please find `requirements.txt` 
+For a complete list of dependencies, please find *requirements.txt* 
 
 ## Examples
 ### Getting predictions using API
