@@ -2,27 +2,35 @@ import numpy as np
 import json
 
 
-class Input:
-    """
-    Validates the inputs and returns them in a form of a list
-    """
-    def __init__(self, data: dict) -> None:
-        if "number_of_rooms" not in data:
-            raise ValueError("Mandatory field 'Number of rooms' is missing")
-        self.number_of_rooms = data["number_of_rooms"]
-        if "area" not in data:
-            raise ValueError("Mandatory field 'Area' is missing")
-        self.area = data["area"]
-        if "floor_on" not in data:
-            raise ValueError("Mandatory field 'Floor on' is missing")
-        self.floor_on = data["floor_on"]
-        if "floors_total" not in data:
-            raise ValueError("Mandatory field 'Total floors' is missing")
-        self.floors_total = data["floors_total"]
+def validate_inputs(data) -> None:
+    if "number_of_rooms" not in data:
+        raise ValueError("Mandatory field 'Number of rooms' is missing")
+    if "area" not in data:
+        raise ValueError("Mandatory field 'Area' is missing")
+    if "floor_on" not in data:
+        raise ValueError("Mandatory field 'Floor on' is missing")
+    if "floors_total" not in data:
+        raise ValueError("Mandatory field 'Total floors' is missing")
+    if "district" not in data:
+        raise ValueError("Mandatory field 'District' is missing")
 
-    def to_list(self) -> list:
-        "Returns the input values in a form of a list"
-        return [self.number_of_rooms, self.area, self.floor_on, self.floors_total]
+
+def district_encoding(district_string) -> list:
+    """Encodes the name of the district into a list of values after dummy encoding"""
+    district_list = ['Akmenės r. sav.', 'Alytus', 'Antakalnis', 'Fabijoniškės', 'Jeruzalė',
+       'Jonavos r. sav.', 'Justiniškės', 'Karoliniškės', 'Kaunas',
+       'Kauno r. sav.', 'Klaipėda', 'Klaipėdos r. sav.', 'Kėdainių m.',
+       'Mažeikių m.', 'Naujamiestis', 'Naujininkai', 'Panevėžio r. sav.',
+       'Panevėžys', 'Pašilaičiai', 'Pilaitė', 'Senamiestis', 'Utenos m.',
+       'Vilnius', 'Viršuliškės', 'Šeškinė', 'Šiauliai', 'Šilutės m.',
+       'Žirmūnai', 'Žvėrynas']
+    return_list = []
+    for district in district_list:
+        if district == district_string:
+            return_list.append(1)
+        else:
+            return_list.append(0)
+    return return_list
 
 
 def process_input(request_data: str) -> np.array:
@@ -36,6 +44,16 @@ def process_input(request_data: str) -> np.array:
     requests = []
 
     for input_datum in input_data:
-        requests.append(Input(input_datum).to_list())
+        validate_inputs(input_datum)
+        enc = district_encoding(input_datum["district"])
+        requests = [
+            input_datum["number_of_rooms"],
+            input_datum["area"],
+            input_datum["floor_on"],
+            input_datum["floors_total"],
+        ]
 
-    return np.asarray(requests)
+        requests_returned = requests + enc
+        requests_returned = [requests_returned]
+
+    return np.asarray(requests_returned)
