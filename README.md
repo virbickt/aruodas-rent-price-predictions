@@ -71,10 +71,12 @@ import json
 
 features_for_prediction = {"inputs":
                            [
-                               {"number_of_rooms": -0.65435196,
-                               "area": -0.08707387,
-                               "floor_on": -0.59894514,
-                               "floors_total": -1.05494671}
+                               {"number_of_rooms": 1,
+                               "area": 31,
+                               "floor_on": 5,
+                               "floors_total": 9,
+                               "district": "Antakalnis"
+                               }
                            ]
                           }
   try:
@@ -89,7 +91,7 @@ Using Postman:
 ![example](images/last_requests.PNG)
 
 ## License
-The project is licenced under [GNU General Public License v3.0](https://github.com/virbickt/calculator/blob/main/LICENSE.md)
+The project is licenced under [MIT License](htthttps://github.com/virbickt/aruodas-rent-price-predictions/blob/main/LICENSE.md)
 
 ## Contact
-[tvirbickas@gmail.com](mailto:tvirbickas@gmail.com?subject=Calculator%20on%20Github)
+[tvirbickas@gmail.com](mailto:tvirbickas@gmail.com?subject=aruodas-rent-price-predictions%20on%20Github)
