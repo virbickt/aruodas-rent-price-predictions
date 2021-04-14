@@ -91,7 +91,7 @@ Using Postman:
 ![example](images/last_requests.PNG)
 
 ## License
-The project is licenced under [MIT License](htthttps://github.com/virbickt/aruodas-rent-price-predictions/blob/main/LICENSE.md)
+The project is licenced under [MIT License](https://github.com/virbickt/aruodas-rent-price-predictions/blob/main/LICENSE.md)
 
 ## Contact
 [tvirbickas@gmail.com](mailto:tvirbickas@gmail.com?subject=aruodas-rent-price-predictions%20on%20Github)
