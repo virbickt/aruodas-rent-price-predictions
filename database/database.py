@@ -26,8 +26,9 @@ class Database():
                         CREATE TABLE Predictions (
                             id SERIAL PRIMARY KEY,
                             date TIMESTAMP DEFAULT NOW(),
-                            input_values VARCHAR(255),
-                            predicted_values VARCHAR(255));
+                            input_values VARCHAR,
+                            predicted_values VARCHAR
+                            )
                     ''')
             self.__connection.commit()
 

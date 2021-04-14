@@ -9,8 +9,8 @@ database = Database()
 app = Flask(__name__)
 
 # Load the model
-saved_model_path = "regressor.pkl"
-regressor = pickle.load(open(saved_model_path, "rb"))
+regressor = pickle.load(open("regressor.pkl", "rb"))
+scaler = pickle.load(open("scaler.pkl", "rb"))
 
 
 @app.route('/')
@@ -39,20 +39,15 @@ def predict() -> str:
         output = json.dumps({"Error": "Data could not be processed. Please check the input values."})
         return output, 400
 
-    try:
-        database.create_record(str(inputs), output)
-    except:
-        return "There was a problem with the database"
+    finally:
+        database.create_record(user_input.decode(), output)
+        return output, 200
 
     #try:
     #    predictions = regressor.predict(inputs)
     #except:
     #    output = json.dumps({"Error": "Predictions failed"})
     #    return output, 500
-
-    finally:
-        return output, 200
-
 
 
 @app.route('/last_requests', methods=['GET'], defaults={'number_of_records': 10})
