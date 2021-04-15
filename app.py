@@ -33,7 +33,6 @@ def predict() -> str:
         predictions = regressor.predict(inputs)
         result = [round(float(prediction), 2) for prediction in predictions]
         output = json.dumps({"Predicted price": result})
-        #return output, 200
     except (KeyError, json.JSONDecodeError):
         output = json.dumps({"Error": "Data could not be processed. Please check the input values."})
         return output, 400
