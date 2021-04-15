@@ -5,7 +5,7 @@ from creating a Python package for data collection to training a model using the
 
 Model deployment is part of a process of building a machine learning pipeline. Model (stored here as `regressor.pkl`) used is a multivariate linear regression
 that has been trained on the data collected using [**scraperuodas**](https://github.com/virbickt/scraperuodas). In order to access the inferences made by the model, a basic 
-Flask application has been created that has two routes: one for making the predictions (`/predict`) and another for retrieving a given number of most recent predictions stored on a database (`/last_records/<desired_number>`).  
+Flask application has been created that has two routes: one for making the predictions (`/predict`) and another for retrieving a given number of most recent predictions stored on a database (`/last_records/<desired_number>`). The application has been deployed on Heroku, a cloud services provider and is accessible through [this link](http://aruodas-rent-price-predictions.herokuapp.com/).
  
 1. [Introduction](#Introduction)
 2. [Installation](#Installation)
