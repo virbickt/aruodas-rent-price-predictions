@@ -43,12 +43,6 @@ def predict() -> str:
         database.create_record(user_input.decode(), output)
         return output, 200
 
-    #try:
-    #    predictions = regressor.predict(inputs)
-    #except:
-    #    output = json.dumps({"Error": "Predictions failed"})
-    #    return output, 500
-
 
 @app.route('/last_requests', methods=['GET'], defaults={'number_of_records': 10})
 @app.route('/last_requests/<number_of_records>', methods=['GET'])
