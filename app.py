@@ -31,7 +31,6 @@ def predict() -> str:
     try:
         inputs = process_input(user_input)
         predictions = regressor.predict(inputs)
-        #output = json.dumps({"Predicted price": predictions.tolist()})
         result = [round(float(prediction), 2) for prediction in predictions]
         output = json.dumps({"Predicted price": result})
         #return output, 200
