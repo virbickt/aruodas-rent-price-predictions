@@ -51,7 +51,7 @@ Returns the desired number of most recent results consisting in input-output pai
   Parameters:
    - *number_of_records*(int): The number of records of input-output pairs that is to be retrieved from the database.
    
-  Returns: json object with the specified number of lists for each prediction
+  Returns: json object with the specified number of predictions to be retrieved
 
 ## Technologies:
 - `Flask, version 1.1.2`
