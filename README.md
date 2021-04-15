@@ -21,7 +21,7 @@ Application has no interface and is only suitable for sending the input values a
 API consists in two routes:
 #### predict
 - `'/predict'` (POST request type)
-Creates a route to return the prediction given the user inputs. Throws errors either if the input could not be processed to a form appropriate for the model.
+Creates a route to return the prediction given the user inputs. Throws errors if the input could not be processed into a form appropriate for the model.
 #### last records
 - `'/last_records'` (GET request type)
 Creates route to return a specified number of last requests made using the API. Returns 10 requests by default.
