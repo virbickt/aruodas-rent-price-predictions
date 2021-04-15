@@ -1,6 +1,6 @@
 # aruodas-rent-price-predictions
 The following has been made as part of the capstone project for module "Data Engineering" on Turing College, a project that encompasses software engineering 
-and reproducable research, SQL and data scraping and deployment of machine learning models. The goal of the project is to set up a complete machine learning pipeline, 
+and reproducable research, SQL, data scraping and deployment of machine learning models. The goal of the project is to set up a complete machine learning pipeline, 
 from creating a Python package for data collection to training a model using the collected data, deploying it on cloud and making the model accessible via basic API.
 
 Model deployment is part of a process of building a machine learning pipeline. Model (stored here as `regressor.pkl`) used is a multivariate linear regression
